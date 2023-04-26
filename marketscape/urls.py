@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from marketscape import views
+
 
 urlpatterns = [
+    path('attempt1/',views.fibonnaci),
+    path('scraper/',views.scraper),
     path('admin/', admin.site.urls),
+    path('search/',views.getdata),
+    path('',views.home)
 ]

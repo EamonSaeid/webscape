@@ -1,0 +1,124 @@
+{%load static%}
+
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Rightmove research tool</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href={% static "assets/css/main.css"%} />
+		<noscript><link rel="stylesheet" href={% static "assets/css/noscript.css"%} /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">Landed</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>
+								<a href="#">Layouts</a>
+								<ul>
+									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option 1</a></li>
+											<li><a href="#">Option 2</a></li>
+											<li><a href="#">Option 3</a></li>
+											<li><a href="#">Option 4</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="elements.html">Elements</a></li>
+							<li><a href="#" class="button primary">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<!-- Text -->
+							<section>
+								<header class="major">
+									<h3>Rightmove research tool</h3>
+								</header>
+								<header>
+									<h4>Insert your rightmove search url here:</h4>	
+									<form method="post">
+									{% csrf_token %}
+										<div class="row gtr-uniform gtr-50">
+											<div class="col-6 col-12-xsmall">
+												<input type="text" name="urlinput" id="x" value="" placeholder="Insert a valid rightmove search url:" /><br>
+												<input type="submit" value="Get data" class="primary" />
+											</div></div>
+										</form>
+									{% if error%}
+										<text>It appears there was an error! {{error}}</text>
+									{% endif %}
+
+									{%if mean%}
+									<div class="col-6 col-12-xsmall">
+										<text>The average house price for your search was:</text>
+										<h2>£{{mean}}</h2>
+							
+										{% if hist %}
+											<img src="data:image/png;base64,{{ hist }}">
+										{% endif %}
+										
+									</div>
+									{% endif %}
+
+									
+
+								</header>
+								
+									
+						
+								<hr/>
+						
+
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src={% static "assets/js/jquery.min.js" %} </script>
+			<script src={% static "assets/js/jquery.scrolly.min.js" %} ></script>
+			<script src={% static "assets/js/jquery.dropotron.min.js"%} ></script>
+			<script src={% static "assets/js/jquery.scrollex.min.js"%} ></script>
+			<script src={% static "assets/js/browser.min.js"%}></script>
+			<script src={% static "assets/js/breakpoints.min.js"%}></script>
+			<script src={% static "assets/js/util.js"%}></script>
+			<script src={% static "assets/js/main.js"%}></script>
+
+	</body>
+</html>
